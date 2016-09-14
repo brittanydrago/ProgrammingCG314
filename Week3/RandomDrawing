@@ -1,0 +1,3 @@
+for (int i = 0; i<5; i++) {
+ellipse(mouseX+random(-30,30),mouseY+random(-30,30),30,30)
+}
