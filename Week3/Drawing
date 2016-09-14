@@ -1,13 +1,20 @@
-float theDistance;
+boolean programStarted = false;
 
 void setup() {
   size(640, 480);
-  strokeWeight(3);
-  fill(255, 0, 0);
 }
 
-void draw()  {
- theDistance=dist(mouseX,mouseY,pmouseX,pmouseY);
- strokeWeight(theDistance);
-  line(mouseX,mouseY,pmouseX,pmouseY); 
+void draw() {
+
+  if (mousePressed) {
+    programStarted = true;
+    strokeWeight(3);
+    stroke (0, 150, 60);
+  } else {
+    stroke(0, 60, 150);
+  }
+
+  if (programStarted) {
+    line(mouseX, mouseY, pmouseX, pmouseY);
+  }
 }
