@@ -1,0 +1,13 @@
+float theDistance;
+
+void setup() {
+  size(640, 480);
+  strokeWeight(3);
+  fill(255, 0, 0);
+}
+
+void draw()  {
+ theDistance=dist(mouseX,mouseY,pmouseX,pmouseY);
+ strokeWeight(theDistance);
+  line(mouseX,mouseY,pmouseX,pmouseY); 
+}
