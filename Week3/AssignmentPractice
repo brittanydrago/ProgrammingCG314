@@ -1,0 +1,8 @@
+int whatShape;
+
+if(mousePressed)  {
+if(whatShape ==1) {
+ellipse;
+else if (whatShape ==2)  {
+rect;
+}
