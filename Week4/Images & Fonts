@@ -1,0 +1,24 @@
+PImage spidey;
+PFont OratorStd;
+PShape web;
+
+void setup() {
+  size(640, 480);
+  spidey = loadImage("spidey.png");
+  OratorStd = createFont("OratorStd", 100);
+  web = loadShape("web.svg");
+}
+
+void draw() {
+  float tempColor = map(mouseX + mouseY, width, height, 0, 255);
+  background(tempColor, mouseX, mouseY);
+  //rotate(radians(-75));
+  image(spidey, mouseX, mouseY, 100, 100);
+
+  //font
+  textSize(50);
+  text("it me", pmouseX, pmouseY);
+
+  //shape
+  shape(web, 50, 50, 25, 25);
+}
