@@ -1,0 +1,37 @@
+void setup() {
+  size(640, 480);
+  background(0);
+  noStroke();
+}
+
+void draw() {
+  ////green
+  //translate(200, 200);
+  //rotate(radians(45));
+  //fill(#35643C);
+  //rect(45, 45, 100, 100);
+  //fill(#3B954A);
+  //rect(0, 0, 75, 75);
+  //fill(#6EBF7C);
+  //rect(-25, -25, 50, 50);
+  //fill(#ADE8B7);
+  //rect(-40, -40, 25, 25);
+
+  pushMatrix();
+  fill(#ADE8B7);
+  rect(0, 0, 50, 50);
+  float tempAngle = map(mouseX, 0, width, 0, 360);
+  translate(mouseX, mouseY);
+  rotate(radians(tempAngle));
+  rect(-25, -25, 50, 50);
+  popMatrix();
+  
+  pushMatrix();
+  fill(#3B954A);
+  rect(0, 0, 50, 50);
+  float tempAng = map(mouseX, 0, width, 0, 90);
+  translate(mouseX, mouseY);
+  rotate(radians(tempAng));
+  rect(-25, -25, 50, 50);
+  popMatrix();
+}
