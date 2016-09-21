@@ -1,0 +1,13 @@
+PImage spidey;
+
+void setup() {
+  size(640, 480);
+  background(255);
+  spidey = loadImage("spidey.png");
+}
+
+void draw() {
+  float tempColor = map(mouseX, 0, width, 0, 255);
+  background(tempColor, 100, 50);
+  image(spidey, mouseX, mouseY, 50, 50);
+}
