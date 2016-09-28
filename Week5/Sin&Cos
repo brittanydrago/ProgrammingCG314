@@ -2,8 +2,6 @@
 //Sin&Cos
 
 //Variables
-float w = width;
-float h = height;
 
 float angle = 0.0;
 float offset;
@@ -12,7 +10,7 @@ float speed = 0.1;
 
 void setup() {
   size (640, 480);
-  offset = h/.32;
+  offset = height/2;
 }
 
 void draw() {
@@ -27,9 +25,9 @@ void draw() {
   fill(#08712E);
   rect(0, 400, 640, 100);
   fill(0);
-  ellipse(w/2 - 25, y1, 50, 50);
-  ellipse(w/2, y2, 50, 50);
-  ellipse(w/2 + 25, y3, 50, 50);
+  ellipse(width/2 - 25, y1, 50, 50);
+  ellipse(width/2, y2, 50, 50);
+  ellipse(width/2 + 25, y3, 50, 50);
 
   //Movement
   angle+=speed;
