@@ -1,0 +1,47 @@
+//BrittanyDrago
+//Functions
+
+//Variables
+float x, y;
+float size = 100;
+float green = 255;
+
+//Image
+PImage slide;
+
+void setup() {
+  size(640, 480);
+  x = width/2;
+  y = height/2;
+
+  //Load Image
+  slide = loadImage("slide.png");
+
+  for (float i = 0; i<100; i++) {
+    x = random(0, width);
+    y = random(0, height);
+    size = random(50, 200);
+    green = random(0, 255);
+    drawWhatever(x, y, size, green);
+  }
+}
+
+void draw() {
+  //drawWhatever(50, 50, 30, 10);
+  //drawWhatever(150, 150, 120, 100);
+  drawSlide(x, y, size, green);
+}
+
+void drawSlide(float tempX, float tempY, float tempSize, float green) {
+  fill(255, green, 0);
+  image(slide, mouseX, mouseY, tempSize, tempSize);
+}
+
+void drawWhatever(float tempX, float tempY, float tempSize, float tempGreen) {
+  fill(255, tempGreen, 0);
+  ellipse(tempX, tempY, tempSize, tempSize);
+  fill(0);
+  ellipse(tempX-tempSize/10, tempY-tempSize/10, tempSize/20, tempSize/20);
+  ellipse(tempX+tempSize/10, tempY-tempSize/10, tempSize/20, tempSize/20);
+  line(tempX-tempSize/5, tempY+tempSize/5, tempX+tempSize/5, tempY+tempSize/5);
+}
