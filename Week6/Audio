@@ -1,0 +1,51 @@
+//BrittanyDrago
+//Pong_example_with_ AUDIO
+
+import processing.sound.*;
+SoundFile file;
+
+float paddleX;
+float ballX;
+float ballY;
+float xDir = 5;
+float yDir = 5;
+
+void setup() {
+  size(800, 600);
+  paddleX = 5;
+  ballX = 50;
+  ballY = height/2;
+
+  //Load soundfile from data folder
+  file = new SoundFile(this, "Dexter.mp3");
+  file.play();
+}
+
+void draw() {
+  background(0);
+  rectMode(CENTER);
+  //Ball & Paddle
+  rect(paddleX, mouseY, 20, 100);
+  rect(ballX, ballY, 20, 20);
+
+  //Movement
+  ballX += xDir;
+  ballY += yDir;
+
+  //Bounce
+  if (ballX > width) {
+    xDir = -xDir;
+  }
+  if (ballY > height || ballY <0) {
+    yDir = -yDir;
+  }
+
+  if (ballX < 20) {
+    if (ballY > mouseY - 50 && ballY < mouseY + 50) {
+      xDir = -xDir;
+    }
+  }
+  if (millis() > 5000) {
+    file.stop();
+  }
+}
