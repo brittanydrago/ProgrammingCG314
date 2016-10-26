@@ -1,0 +1,37 @@
+//Arrays
+
+//Variables
+int stars = 500;
+
+float [] x = new float [stars];
+float [] y = new float [stars];
+float [] shade = new float [stars];
+float [] diameter = new float [stars];
+color [] sprinkles = new color [stars];
+
+void setup() {
+  size(800, 600);
+
+  for (int i = 0; i< x.length; i++) {
+    x[i] = random(1, width);
+    y[i] = random(1, height);
+    shade[i] = random(100, 220);
+    diameter[i] = random(2, 8);
+    sprinkles[i] = color(random(100, 255), random(100, 255), random(100, 255));
+  }
+
+  println(y.length);
+}
+
+void draw() {
+  background(#76EAB1);
+  for (int i = 0; i<x.length; i++) {
+    fill(sprinkles[i]);
+    noStroke();
+    ellipse(x[i], y[i], diameter[i], diameter[i]);
+    y[i]+=0.1;
+    if (y[i]>height) {
+      y[i] = 0;
+    }
+  }
+}
