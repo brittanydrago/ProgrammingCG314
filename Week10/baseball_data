@@ -3,8 +3,8 @@ int [] homeruns;
 void setup() {
   size(480, 120);
   Table stats = loadTable("Donaldson.csv", "header");
-  homeruns = new int[stats.getRowCount()];
-  for (int i=0; i<stats.getRowCount(); i++) {
+  homeruns = new int[stats.getRowCount()-1];
+  for (int i=0; i<stats.getRowCount()-1; i++) {
     homeruns[i] = stats.getInt(i, 4);
     //int year = stats.getInt(i, 0);
     //int homeruns = stats.getInt(i, 4);
