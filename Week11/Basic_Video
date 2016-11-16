@@ -1,19 +1,31 @@
 import processing.video.*;
-Movie m;
-
+Movie video;
 
 void setup() {
   size(640, 480);
-  m = new Movie(this, “myVideo.mov”);
-  m.play();  //or m.loop();
+  video = new Movie(this, "DiceRoll.mov");
+  video.play();
 }
-
 
 void draw() {
-  image(m, 0, 0);
+  background(0);
+  image(video, 0, 0);
+  loadPixels();
+  video.loadPixels();
+  for (int x = 0; x<width; x++) {
+    for (int y = 0; y<height; y++) {
+      float tempX = width - x; //Invert
+      int theIndex = tempX + y * width;
+      float r = red(video.pixels[theIndex]);
+      float g = green(video.pixels[theIndex]);
+      float b = blue(video.pixels[theIndex]);
+      pixels[theIndex] = color(r, g, b);
+    }
+  }
+  updatePixels();
+  video.updatePixels();
 }
 
-
-void movieEvent(Movie m) {
-  m.read();
+void movieEvent(Movie video) {
+  video.read();
 }
