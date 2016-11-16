@@ -14,8 +14,8 @@ void draw() {
   video.loadPixels();
   for (int x = 0; x<width; x++) {
     for (int y = 0; y<height; y++) {
-      float tempX = width - x; //Invert
-      int theIndex = tempX + y * width;
+      //float tempX = width - x; //Invert
+      int theIndex = int(x + y * width);
       float r = red(video.pixels[theIndex]);
       float g = green(video.pixels[theIndex]);
       float b = blue(video.pixels[theIndex]);
