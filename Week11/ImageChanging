@@ -1,26 +1,23 @@
-PImage myImage;
-float factor = 1;
+import processing.video.*;
+Capture video;
 
 void setup() {
-  //myImage = loadImage("boi.jpg");
-  myImage = loadImage("krabs.jpg");
-  size(262, 262);
+  size(640, 480);
+  video = new Capture(this, 640, 480);
+  video.start();
 }
 
 void draw() {
+  background(0);
+  image(video, 0, 0);
   loadPixels();
-  myImage.loadPixels();
+  video.loadPixels();
   for (int x = 0; x<width; x++) {
-    for (int y = 0; y<height; y++) {
+    for (int y=0; y<height; y++) {
       int theIndex = x + y * width;
-      float r = 255 - (red(myImage.pixels[theIndex])) * factor;
-      float g = 255 - (green(myImage.pixels[theIndex])) * factor;
-      float b = 255 - (blue(myImage.pixels[theIndex])) * factor;
-      pixels[theIndex] = color(r*50, g, b);
+      float r = random(255 - red(video.pixels[theIndex]));
+      float g = (255 - green(video.pixels[theIndex]));
+      float b = random(255 - blue(video.pixels[theIndex]));
+      pixels[theIndex] = color(r, g, b);
     }
   }
-  updatePixels();
-  myImage.updatePixels();
-
-  factor = factor * 1.001;
-}
