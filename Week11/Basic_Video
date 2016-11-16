@@ -1,0 +1,19 @@
+import processing.video.*;
+Movie m;
+
+
+void setup() {
+  size(640, 480);
+  m = new Movie(this, “myVideo.mov”);
+  m.play();  //or m.loop();
+}
+
+
+void draw() {
+  image(m, 0, 0);
+}
+
+
+void movieEvent(Movie m) {
+  m.read();
+}
