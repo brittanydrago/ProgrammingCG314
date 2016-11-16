@@ -1,0 +1,26 @@
+PImage myImage;
+float factor = 1;
+
+void setup() {
+  //myImage = loadImage("boi.jpg");
+  myImage = loadImage("krabs.jpg");
+  size(262, 262);
+}
+
+void draw() {
+  loadPixels();
+  myImage.loadPixels();
+  for (int x = 0; x<width; x++) {
+    for (int y = 0; y<height; y++) {
+      int theIndex = x + y * width;
+      float r = 255 - (red(myImage.pixels[theIndex])) * factor;
+      float g = 255 - (green(myImage.pixels[theIndex])) * factor;
+      float b = 255 - (blue(myImage.pixels[theIndex])) * factor;
+      pixels[theIndex] = color(r*50, g, b);
+    }
+  }
+  updatePixels();
+  myImage.updatePixels();
+
+  factor = factor * 1.001;
+}
