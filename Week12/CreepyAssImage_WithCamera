@@ -25,7 +25,7 @@ void draw() {
   translate(x, y, z);
   shape(mosby, 0, 0);
   
-  camera(mouseX, height/2, (height/2) / tan(PI/6), mouseX, height/2, 0, 0, 1, 0);
+  camera(mouseX, height/2, (height/2) / tan(PI/6), mouseY, height/2, 0, 0, 1, 0);
 
   z = (mouseX*.5);
 }
