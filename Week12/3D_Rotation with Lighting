@@ -17,6 +17,7 @@ void draw() {
   rotateY(PI/8);
   rotateY(rotation);
 
+  //box(100);
   sphere(100);
   rotation+= PI/50;
 }
