@@ -1,0 +1,22 @@
+//Variables
+float x, y, z;
+float rotation = PI/48;
+
+void setup() {
+  size(800, 600, P3D); 
+  x = width/2;
+  y = height/2;
+  z = 0;
+}
+void draw() {
+  fill(255);
+  pointLight(0, 140, 60, 0, height/2, 1000);
+  noStroke();
+  background(0);
+  translate(x, y, z);
+  rotateY(PI/8);
+  rotateY(rotation);
+
+  sphere(100);
+  rotation+= PI/50;
+}
