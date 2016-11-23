@@ -1,0 +1,35 @@
+PShape star;
+float rotation = PI/50;
+
+void setup() {
+  size(800, 600, P3D);
+  star = createShape();
+  star.beginShape();
+  star.fill(#93F794);
+  star.noStroke();
+
+  //Vertex
+  star.vertex(0, -50);
+  star.vertex(14, -20);
+  star.vertex(47, -15);
+  star.vertex(23, 7);
+  star.vertex(29, 40);
+  star.vertex(0, 25);
+  star.vertex(-29, 40);
+  star.vertex(-23, 7);
+  star.vertex(-47, -15);
+  star.vertex(-14, -20);
+  star.endShape(CLOSE);
+}
+
+void draw() {
+  background(0);
+  translate(mouseX, mouseY);
+  rotateY(PI/8);
+  rotateX(rotation*.3);
+  rotateY(rotation);
+
+
+  shape(star);
+  rotation+= PI/50;
+}
