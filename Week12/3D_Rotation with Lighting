@@ -14,11 +14,16 @@ void draw() {
   noStroke();
   //stroke(0, 160, 40);
   //sphereDetail(25);
+  //sphereDetail(3);
   background(0);
   translate(x, y, z);
   rotateY(PI/8);
   rotateX(rotation*.3);
   rotateY(rotation);
+
+  //Translate
+  x++;
+  y++;
 
   //box(100);
   sphere(250);
