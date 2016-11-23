@@ -12,6 +12,8 @@ void draw() {
   fill(255);
   pointLight(0, 140, 60, 0, height/2, 1000);
   noStroke();
+  //stroke(0, 160, 40);
+  //sphereDetail(25);
   background(0);
   translate(x, y, z);
   rotateY(PI/8);
