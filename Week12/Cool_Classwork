@@ -29,7 +29,8 @@ void draw() {
   rotateX(rotation*.3);
   rotateY(rotation);
 
-
   shape(star);
   rotation+= PI/50;
+
+  camera(mouseX, height/2, (height/2) / tan(PI/6), mouseY, height/2, 0, 0, 1, 0);
 }
