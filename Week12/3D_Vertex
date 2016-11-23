@@ -13,7 +13,6 @@ void draw() {
   lights();
   fill(255);
   stroke(0, 160, 40);
-  sphereDetail(3);
   translate(x, y, z);
 
   //Vertex Rotation
