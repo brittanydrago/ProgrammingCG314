@@ -1,0 +1,19 @@
+//Variables
+float x, y, z;
+float rotation = PI/48;
+
+void setup() {
+  size(800, 600, P3D); 
+  x = width/2;
+  y = height/2;
+  z = 0;
+}
+void draw() {
+  background(0);
+  translate(x, y, z);
+  rotateX(rotation);
+  rectMode(CENTER);
+  fill(#93F794);
+  rect(0, 0, 100, 100);
+  rotation+= PI/50;
+}
