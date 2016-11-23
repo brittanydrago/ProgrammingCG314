@@ -1,7 +1,7 @@
 //Variables
 PImage img;
 PShape doggo;
-PShape star;
+//PShape star;
 float rotation = PI/50;
 float r, g, b;
 float x, y, z;
@@ -22,6 +22,7 @@ void setup() {
   doggo = createShape(SPHERE, 100);
   doggo.setTexture(img);
 
+  //Snow
   for (int i = 0; i< x1.length; i++) {
     x1[i] = random(1, width);
     y1[i] = random(1, height);
@@ -30,22 +31,22 @@ void setup() {
     snowflakes[i] = color(255);
   }
 
-  //Star shape
-  star = createShape();
-  star.beginShape();
-  star.fill(#93F794);
-  star.noStroke();
-  star.vertex(0, -50);
-  star.vertex(14, -20);
-  star.vertex(47, -15);
-  star.vertex(23, 7);
-  star.vertex(29, 40);
-  star.vertex(0, 25);
-  star.vertex(-29, 40);
-  star.vertex(-23, 7);
-  star.vertex(-47, -15);
-  star.vertex(-14, -20);
-  star.endShape(CLOSE);
+  ////Star shape
+  //star = createShape();
+  //star.beginShape();
+  //star.fill(#93F794);
+  //star.noStroke();
+  //star.vertex(0, -50);
+  //star.vertex(14, -20);
+  //star.vertex(47, -15);
+  //star.vertex(23, 7);
+  //star.vertex(29, 40);
+  //star.vertex(0, 25);
+  //star.vertex(-29, 40);
+  //star.vertex(-23, 7);
+  //star.vertex(-47, -15);
+  //star.vertex(-14, -20);
+  //star.endShape(CLOSE);
 
   x = width/2;
   y = height/2;
@@ -56,6 +57,7 @@ void draw() {
   background(0);
   lights();
 
+  //Snow
   for (int i = 0; i<x1.length; i++) {
     fill(snowflakes[i]);
     noStroke();
@@ -72,7 +74,7 @@ void draw() {
   rotateY(rotation);
 
   shape(doggo);
-  shape(star);
+  //shape(star);
   rotation+= PI/50;
 
   //camera(mouseX, height/2, (height/2) / tan(PI/6), mouseY, height/2, 0, 0, 1, 0);
