@@ -12,6 +12,7 @@ void draw() {
   background(0);
   translate(x, y, z);
   rotateX(rotation);
+  rotateY(rotation*5);
   rectMode(CENTER);
   fill(#93F794);
   rect(0, 0, 100, 100);
