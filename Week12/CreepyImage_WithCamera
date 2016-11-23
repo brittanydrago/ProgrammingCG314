@@ -1,0 +1,31 @@
+//Variables
+PImage img;
+PShape mosby;
+
+float x, y, z;
+
+void setup() {
+  size(800, 600, P3D); 
+  sphereDetail(40);
+  noStroke();
+  img=loadImage("mosby.png");
+  mosby = createShape(SPHERE, 100);
+  mosby.setTexture(img);
+
+  x = width/2;
+  y = height/2;
+  z = 0;
+}
+
+void draw() {
+  background(0);
+  lights();
+
+  mosby.rotateY(radians(1));
+  translate(x, y, z);
+  shape(mosby, 0, 0);
+  
+  camera(mouseX, height/2, (height/2) / tan(PI/6), mouseX, height/2, 0, 0, 1, 0);
+
+  z = (mouseX*.5);
+}
