@@ -1,5 +1,6 @@
 PShape star;
 float rotation = PI/50;
+float r, g, b;
 
 void setup() {
   size(800, 600, P3D);
@@ -33,4 +34,12 @@ void draw() {
   rotation+= PI/50;
 
   camera(mouseX, height/2, (height/2) / tan(PI/6), mouseY, height/2, 0, 0, 1, 0);
+}
+
+void keyPressed() {
+  if (keyPressed && key == ' ');
+  r = random(0, 255);
+  g = random(0, 255);
+  b = random(0, 255);
+  background(r, g, b);
 }
