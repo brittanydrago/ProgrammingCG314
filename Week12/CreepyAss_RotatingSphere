@@ -1,0 +1,20 @@
+PImage img;
+PShape mosby;
+
+
+void setup() {
+  size(800, 600, P3D); 
+  sphereDetail(40);
+  noStroke();
+  img=loadImage("mosby.png");
+  mosby = createShape(SPHERE, 100);
+  mosby.setTexture(img);
+}
+
+void draw() {
+  background(0);
+  lights();
+  translate(width/2, height/2, 0);
+  mosby.rotateY(radians(1));
+  shape(mosby, 0, 0);
+}
