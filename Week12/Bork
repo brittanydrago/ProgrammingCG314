@@ -1,0 +1,88 @@
+//Variables
+PImage img;
+PShape doggo;
+PShape star;
+float rotation = PI/50;
+float r, g, b;
+float x, y, z;
+
+//Snow Variables
+int snow = 500;
+
+float [] x1 = new float [snow];
+float [] y1 = new float [snow];
+float [] shade = new float [snow];
+float [] diameter = new float [snow];
+color [] snowflakes = new color [snow];
+
+void setup() {
+  size(800, 600, P3D);
+  img = loadImage("doggo.jpg");
+  noStroke();
+  doggo = createShape(SPHERE, 100);
+  doggo.setTexture(img);
+
+  for (int i = 0; i< x1.length; i++) {
+    x1[i] = random(1, width);
+    y1[i] = random(1, height);
+    shade[i] = random(100, 220);
+    diameter[i] = random(2, 8);
+    snowflakes[i] = color(255);
+  }
+
+  //Star shape
+  star = createShape();
+  star.beginShape();
+  star.fill(#93F794);
+  star.noStroke();
+  star.vertex(0, -50);
+  star.vertex(14, -20);
+  star.vertex(47, -15);
+  star.vertex(23, 7);
+  star.vertex(29, 40);
+  star.vertex(0, 25);
+  star.vertex(-29, 40);
+  star.vertex(-23, 7);
+  star.vertex(-47, -15);
+  star.vertex(-14, -20);
+  star.endShape(CLOSE);
+
+  x = width/2;
+  y = height/2;
+  z = 0;
+}
+
+void draw() {
+  background(0);
+  lights();
+
+  for (int i = 0; i<x1.length; i++) {
+    fill(snowflakes[i]);
+    noStroke();
+    ellipse(x1[i], y1[i], diameter[i], diameter[i]);
+    y1[i]+=0.1;
+    if (y1[i]>height) {
+      y1[i] = 0;
+    }
+  }
+
+  translate(mouseX, mouseY);
+  rotateY(PI/8);
+  rotateX(rotation*.3);
+  rotateY(rotation);
+
+  shape(doggo);
+  shape(star);
+  rotation+= PI/50;
+
+  //camera(mouseX, height/2, (height/2) / tan(PI/6), mouseY, height/2, 0, 0, 1, 0);
+  z = (mouseX*.5);
+}
+
+void keyPressed() {
+  if (keyPressed && key == ' ');
+  r = random(0, 255);
+  g = random(0, 255);
+  b = random(0, 255);
+  background(r, g, b);
+}
