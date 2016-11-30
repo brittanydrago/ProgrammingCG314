@@ -8,7 +8,7 @@ void setup() {
   String [] lines =   
     loadStrings("dickens.txt");
   String fullText = join(lines, " ");
-  words = splitTokens(fullText, " .,!?:");
+  words = splitTokens(fullText, " .,!?;:$#()-[]_=+");
   wordCounter = new IntDict();
 
   for (int i = 0; i<words.length; i++) {
