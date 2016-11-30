@@ -1,0 +1,26 @@
+//Counting Words from a .txt file
+
+IntDict wordCounter;
+String [] words;
+
+void setup() {
+  size(400, 400);
+  String [] lines =   
+    loadStrings("dickens.txt");
+  String fullText = join(lines, " ");
+  words = splitTokens(fullText, " .,!?:");
+  wordCounter = new IntDict();
+
+  for (int i = 0; i<words.length; i++) {
+    wordCounter.increment(words[i].toLowerCase());
+  }
+  wordCounter.sortValuesReverse();
+}
+void draw() {
+  String [] keys = wordCounter.keyArray();
+  for (int i = 0; i < keys.length; i++) {
+    int count = wordCounter.get(keys[i]);
+    println(keys[i], count);
+  }
+  noLoop();
+}
